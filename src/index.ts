@@ -1,26 +1,23 @@
 // IMPORTS
-import { ApolloServer } from "apollo-server-express";
 import express from "express";
-import typeDefs from "./graphql/typeDefs";
-import resolvers from "./graphql/resolvers";
+import graphql from "./graphql";
+import database from "./database";
 
 const app = express();
 
-// Create apollo server
-const apolloServer = new ApolloServer({
-  typeDefs,
-  resolvers,
-});
+// START SERVER
+const main = async () => {
+  // initialize typeorm
+  await database();
 
-const startServer = async () => {
   // Wait apollo server
-  await apolloServer.start();
+  await graphql.start();
 
   //   add express to apollo
-  apolloServer.applyMiddleware({ app });
+  graphql.applyMiddleware({ app });
 
   //   listen to port
   app.listen({ port: 3000 }, () => console.log("running on port 3000"));
 };
 
-startServer();
+main();

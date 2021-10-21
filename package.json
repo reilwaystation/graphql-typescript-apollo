@@ -1,9 +1,12 @@
 {
   "dependencies": {
+    "@types/joi": "^17.2.3",
     "apollo-server-express": "^3.3.0",
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "graphql": "^15.6.1",
+    "joi": "^17.4.2",
     "nodemon": "^2.0.13",
     "pg": "^8.7.1",
     "ts-node": "^10.2.1",
@@ -16,6 +19,7 @@
     "build": "tsc -p"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/node": "^16.10.3"
